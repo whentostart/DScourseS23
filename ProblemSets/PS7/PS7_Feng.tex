@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage{booktabs} % for enhanced table formatting
+\usepackage{siunitx} % for typesetting numbers and units
+
+% Define a new column type for decimal-aligned columns
+\newcolumntype{d}{S[
+    input-open-uncertainty=,
+    input-close-uncertainty=,
+    parse-numbers = false,
+    table-align-text-pre=false,
+    table-align-text-post=false
+ ]}
+
+\begin{document}
+
+\section{Results}
+
+Table \ref{tab:regression} shows the results of the regression models.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Regression results}
+  \label{tab:regression}
+  \input{regression_table}
+\end{table}
+
+\section{The true value of the coefficient is 0.093. While in the complete cases regression model, mean imputation model, regression imputation model, and multiple imputation model, the coefficients are 0.062, 0.05, 0.062, and 0.059, respectively. The patterns across the models suggest that the missing data imputation can have an impact on the estimated coefficient.}
+
+
+\section{I use a dataset of wages and human capital variables and conduct exploratory data analysis, including missing value imputation, and estimated several regression models to investigate the relationship between return on investment in education and various human capital variables.
+I use linear regression models for your analysis, including one with complete cases, one with mean imputation, one with predicted values imputation, and one with multiple imputations using the mice package. You have also used the modelsummary package to generate regression tables to compare the results of these models.}
+
+\end{document}
