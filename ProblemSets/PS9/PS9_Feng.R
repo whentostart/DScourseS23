@@ -115,3 +115,11 @@ ridge_predicted <- predict(final_ridge_wf_fit, new_data = housing_test_prepped) 
   exp()
 
 
+print(top_rmse_ridge)
+print(ridge_rmse)
+
+ridge_predicted_actuals <- bind_cols(ridge_predicted, housing_test_prepped %>% select(medv))
+ridge_rmse <- rmse(ridge_predicted_actuals, truth = medv, estimate = .pred)
+
+
+
