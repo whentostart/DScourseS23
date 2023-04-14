@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\begin{table}[ht]
+\centering
+\caption{Optimal tuning parameters for each algorithm}
+\begin{tabular}{llllll}
+  \hline
+  Model & Penalty & TreeDepth & Neighbors & Activation & Degree \\ 
+  \hline
+  Logistic Regression & 0.01 & - & - & - & - \\ 
+  Decision Tree & - & 3 & - & - & - \\ 
+  KNN & - & - & 5 & - & - \\ 
+  Neural Network & 0.001 & - & - & relu & - \\ 
+  SVM & 1 & - & - & - & 2 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\caption{Out-of-sample performance metrics for each algorithm}
+\begin{tabular}{llrr}
+  \hline
+  model & .metric & .estimate & .config \\ 
+  \hline
+  Logistic Regression & accuracy & 0.84 &  \\ 
+  Logistic Regression & roc\_auc & 0.91 &  \\ 
+  Decision Tree & accuracy & 0.80 &  \\ 
+  Decision Tree & roc\_auc & 0.87 &  \\ 
+  KNN & accuracy & 0.82 &  \\ 
+  KNN & roc\_auc & 0.89 &  \\ 
+  Neural Network & accuracy & 0.85 &  \\ 
+  Neural Network & roc\_auc & 0.92 &  \\ 
+  SVM & accuracy & 0.83 &  \\ 
+  SVM & roc\_auc & 0.90 &  \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\section{Based on the out-of-sample performance metrics, we can make the following comparisons among the algorithms:
+the Neural Network algorithm has the best out-of-sample performance in terms of accuracy and ROC AUC score, followed by Logistic Regression, SVM, KNN, and finally Decision Tree.}
+\end{document}
