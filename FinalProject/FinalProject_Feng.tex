@@ -1,0 +1,183 @@
+\documentclass[12pt,english]{article}
+\usepackage{mathptmx}
+
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkblue}{RGB}{0.,0.,139.}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{lipsum}
+
+\usepackage[authoryear]{natbib}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{pdflscape}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=false,
+ colorlinks,citecolor=black,filecolor=black,
+ linkcolor=black,urlcolor=black]
+ {hyperref}
+\usepackage[all]{hypcap} % Links point to top of image, builds on hyperref
+\usepackage{breakurl}    % Allows urls to wrap, including hyperref
+
+\linespread{2}
+
+\begin{document}
+
+\begin{singlespace}
+\title{.\thanks{Acknowledgements here, if any.}}
+\end{singlespace}
+
+\author{Qinghua Feng\thanks{Department of Economics, University of Oklahoma.\
+E-mail~address:~\href{mailto:student.name@ou.edu}{student.name@ou.edu}}}
+
+% \date{\today}
+\date{April 25, 2023}
+
+\maketitle
+
+\begin{abstract}
+\begin{singlespace}
+This study aims to investigate how the relationship between supplier and customer influence their stock return comovement. Using the datasets FactSet and CRSP, we employ a multivariate regression framework to estimate the extent of stock return comovement between supplier and customer. Our findings suggest a positive relationship between supplier and customer stock returns, indicating that supply and customer relationships have a significant impact on a firm's financial performance. The results has important implications for firms in managing their supply chain.
+\end{singlespace}
+
+\end{abstract}
+\vfill{}
+
+
+\pagebreak{}
+
+
+\section{Introduction}\label{sec:intro}
+The importance supply chain, in which the relationship between suppliers and customers is a crucial component,  has been noted across countries. The collaboration between a supplier and a customer has a significant impact on the shipment, the cost, and the quality of goods, which determines each other's financial performance. As such, I predict the stock return comovement between supplier and customer has a positive relationship, as stock returns are closely linked to firms financial performance.
+
+From the business world to academic research, there has been a growing interest in understanding the impact of supply chain relationships on a firm's stock returns. While prior research has primarily focused on the accounting comparability of supplier and customer and the stock return comovement of firms followed by common analysts or investors, there is rare research that has been dived into the relationship between supplier and customer stock returns. This gap motivates me to investigate the stock returns comovement between supplier and customer.
+
+In this study, I aim to fill this gap in the literature by examining how the relationship between supplier and customer influences their stock return comovement. I use a multivariate regression framework to estimate the extent of stock return comovement between supplier and customer using datasets from FactSet and CRSP. The findings suggest a positive relationship between supplier and customer stock returns, indicating that supply and customer relationships have a significant impact on a firm's financial performance. The results of our study have important implications for firms in managing their supply chain and for investors in assessing the performance of their investment portfolios.
+
+
+\section{Literature Review}\label{sec:litreview}
+
+
+Return comovement reflects fundamental economic events and the underlying operational performance. According to \cite{fama1993common} (Fama French 1993), firms' stock prices are more likely to move together if they are exposed to common risk factors. Comovement tends to increase in challenging times when firms face similar economic pressures ~\citep {erb1994forecasting} (Erb et al. 1994, Ding et al. 2011).
+
+In addition to the research on common risk factors, other determinants of return comovement have been explored. Studies have found that firms predominantly invested by institutional investors exhibit greater comovement ~\citep{pindyck1993comovement} (Pindyck and Rotemberg 1993). Furthermore, shared ownership ~\citep{anton2014connected} (Antón and Polk 2014), investor attention ~\citep{drake2017comovement} (Drake et al. 2017), and analyst following ~\citep{muslu2014sell} (Muslu et al. 2014) have also been identified as determinants of stock return comovement.
+
+Researchers have also examined the correlation between stock returns and firms' disclosures. ~\citet{dyer2017evolution} (Dyer et al. 2017) expect that firms' financial reporting choices influence the comovement in stock returns and find that the similarity of firms' disclosures not only predicts but also influences future return comovement. Other factors, such as information intermediaries ~\citep{piotroski2004influence} (Piotroski 2004), analysts' ratings of firms' disclosure policies ~\citep{haggard2008does} (Haggard et al. 2008), and commonality in news coverage \citep{dang2015commonality} (Dang et al. 2015), have also been studied.
+
+
+
+
+\section{Data}\label{sec:data}
+The main databases used in our empirical analysis are the CRSP stock database
+(for stock returns), and the FactSet Revere relationships database (for information about
+suppliers, customers, and competitors).
+The FactSet Revere database provides arguably the most comprehensive
+coverage of firm-level supplier-customer relationships that is currently
+available. It includes relationships disclosed by either suppliers or customers
+(or by both), with the start and end dates for each relationship. FactSet’s analysts
+monitor the relationships data on a regular basis. The comprehensive supplier-customer data allows me to measure the relationship lenth between supplier and customer. 
+Our sample period is from April 2003, when the FactSet database started, to
+April 2023.
+I merge the FactSet Revere database with the CRSP databases (using FactSet-CRSP linking table).
+We exclude the relation length between supplier and customer that is less than one year. Our matched sample has a total of 60,798 observations.
+
+
+\section{Empirical Methods}\label{sec:methods}
+I construct each unique pair of supplier and customer as an observation. The observations that 12 months after starting the relationship as post=0 and the observations that 12 months before the ending date of the relationship as post=1. 
+The primary empirical model can be depicted in the following equation:
+
+\begin{equation}
+\label{eq:1}
+Y_{it}=\alpha_{0} + \alpha_{1}Post_{0,1} + \varepsilon,
+\end{equation}
+where $Y_{it}$ is the correlation of each pair of supplier and customer in month $t$, and $Post_{0,1}$ are dummy variables about the the lenth of supplier and customer relationship.
+
+
+\section{Research Findings}\label{sec:results}
+The main results are reported in Table \ref{tab:estimates}.
+
+ANOVA table: This table shows the analysis of variance (ANOVA) for the regression model. The "Model" row shows the degrees of freedom (DF), sum of squares, mean square, F-value, and p-value for the regression model. The "Error" row shows the DF, sum of squares, and mean square for the residual (error) term. The "Corrected Total" row shows the DF and sum of squares for the total variance. The F-value and p-value in the "Model" row are used to test the overall significance of the model. In this case, the F-value is 13.61 with a p-value of 0.0002, which indicates that the model is statistically significant.
+
+
+R-Square: This is the coefficient of determination, which measures the proportion of the total variance in the dependent variable that is explained by the regression model. In this case, the R-squared value is 0.0002, which indicates that the model explains only a very small proportion of the variance in the dependent variable. Since only dummy variables are included in this equation, it's not a surprise to get a small the R-squared value. The next analysis will include control variable of market value.
+
+
+Parameter Estimates: the intercept is statistically significant with a p-value < 0.0001, and the coefficient for "post" is also statistically significant with a p-value of 0.0002. The coefficient for "post" is positive and equal to 0.0104, which indicates that there is a positive relationship between the relationship and stock return comovement .
+
+
+
+
+\section{Conclusion}\label{sec:conclusion}
+
+
+This study investigates the relationship between supplier and customer and its impact on comovement. The findings suggest a positive relationship between the length of supplier-customer relationships and their stock returns, indicating that the supply and customer relationships significantly impact a firm's financial performance. The study fills a gap in the literature by investigating the length of relationship and stock return comovement between supplier and customer, which has been underexplored compared to other factors. The research has important implications for firms supply chain management and for investors in assessing their investment portfolios.
+
+The study uses a multivariate regression framework to estimate the extent of stock return comovement between supplier and customer using datasets from FactSet and CRSP. The ANOVA table indicates that the regression model is statistically significant, and the coefficient of determination is low since only dummy variables are included. The parameter estimates show that the intercept is statistically significant, and the coefficient for "post" is also statistically significant, indicating a positive relationship between the relationship and stock return comovement.
+
+Future research can consider incorporating other control variables, such as market value, to enhance the model's predictive power. Additionally, other factors, such as information intermediaries and commonality in news coverage, could be explored to provide a more comprehensive understanding of the determinants of stock return comovement.
+
+
+
+
+
+
+
+
+
+
+\vfill
+\pagebreak{}
+\begin{spacing}{1.0}
+\bibliographystyle{plain}
+\bibliography{PS11_Feng}
+\addcontentsline{toc}{section}{References}
+\end{spacing}
+
+\vfill
+\pagebreak{}
+\clearpage
+
+%========================================
+% FIGURES AND TABLES 
+%========================================
+\section*{Figures and Tables}\label{sec:figTables}
+\addcontentsline{toc}{section}{Figures and Tables}
+%----------------------------------------
+% Figure 1
+%----------------------------------------
+\begin{figure}[ht]
+\centering
+\bigskip{}
+
+\includegraphics[width=.9\linewidth]{figure1.png}
+\caption{Residual}
+\label{fig:figure1}
+
+
+\includegraphics[width=.9\linewidth]{figure2.png}
+\caption{Returns}
+\label{fig:figure2}
+
+
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\includegraphics[width=.9\linewidth]{table.png}
+\caption{ANOVA table}
+\label{tab:ANOVA}
+\end{table}
+
+
+
+\end{document}
